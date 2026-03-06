@@ -143,9 +143,5 @@ const plugin = {
             return { valid: false, errors: ['Plugin disabled by config'] };
         return { valid: true, errors: [] };
     },
-    onRegister(ctx) {
-        ctx.registerDomain(domainManifest);
-        ctx.registerMetric('jadx_bridge_calls_total');
-    },
 };
 export default plugin;
