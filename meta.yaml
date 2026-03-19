@@ -1,5 +1,4 @@
-name: jadx-bridge
-description: Atomic bridge plugin exposing jadx_bridge only.
+name: Jadx Bridge
+description: Atomic Jadx bridge plugin.
 author: vmoranv
 source_repo: https://github.com/vmoranv/jshook_plugin_jadx_bridge
-
