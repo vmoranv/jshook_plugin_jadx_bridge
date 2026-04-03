@@ -8,12 +8,20 @@ import {
 } from '@jshookmcp/extension-sdk/bridges';
 import {
   createExtension,
-  getPluginBooleanConfig,
-  loadPluginEnv,
 } from '@jshookmcp/extension-sdk/plugin';
 import type { ToolArgs, PluginLifecycleContext } from '@jshookmcp/extension-sdk/plugin';
 
-loadPluginEnv(import.meta.url);
+const PLUGIN_SLUG = 'jadx-bridge';
+
+function getPluginBooleanConfig(
+  ctx: PluginLifecycleContext,
+  slug: string,
+  key: string,
+  fallback: boolean,
+): boolean {
+  const value = ctx.getConfig(`plugins.${slug}.${key}`, fallback);
+  return typeof value === 'boolean' ? value : fallback;
+}
 
 async function handleJadxBridge(args: ToolArgs) {
   const action = typeof args.action === 'string' ? args.action : 'guide';
